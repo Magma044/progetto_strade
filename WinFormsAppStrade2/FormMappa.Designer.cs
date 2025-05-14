@@ -1,6 +1,6 @@
-﻿namespace WinFormsAppStrade
+﻿namespace WinFormsAppStrade2
 {
-    partial class FormStrade
+    partial class FormMappa
     {
         /// <summary>
         ///  Required designer variable.
@@ -30,14 +30,13 @@
         {
             SuspendLayout();
             // 
-            // FormStrade
+            // FormMappa
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Name = "FormStrade";
-            Text = "Strade";
-            WindowState = FormWindowState.Maximized;
+            Name = "FormMappa";
+            Text = "Mappa";
             ResumeLayout(false);
         }
 
