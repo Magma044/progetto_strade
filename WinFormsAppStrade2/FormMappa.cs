@@ -5,7 +5,7 @@ namespace WinFormsAppStrade2
 {
     public partial class FormMappa : Form
     {
-        Mappa m = new Mappa();
+        Mappa mappa;
         public FormMappa()
         {
             InitializeComponent();
@@ -13,50 +13,52 @@ namespace WinFormsAppStrade2
             this.WindowState = FormWindowState.Maximized;
 
             //Generazione punti incrocio
-            for (int i = 0; i < 10; i++)
+            List<Incrocio> incroci = [];
+            for (int i = 0; i < 35; i++)
             {
                 Random r = new Random();
-                int x = r.Next(25, ClientSize.Width - 25);
-                int y = r.Next(25, ClientSize.Height - 25);
+                int x = r.Next(25, ClientSize.Width - 100);
+                int y = r.Next(25, ClientSize.Height - 100);
                 Incrocio incrocio = new Incrocio(x, y);
-                m.Incroci.Add(incrocio);
+                incroci.Add(incrocio);
             }
 
             //Generazione strade
-            foreach(Incrocio i in m.Incroci)
+            List<Strada> strade = [];
+            foreach (Incrocio i in incroci)
             {
                 double distanza = 9999;
                 Incrocio partenza = i;
                 Incrocio fine = null;
-                foreach(Incrocio j in m.Incroci)
+                foreach(Incrocio j in incroci)
                 {
                     if(j != i)
                     {
-                        int dx = i.X - j.X;
-                        int dy = i.Y - j.Y;
-                        double distanzaAttuale = Math.Sqrt(dx * dx + dy * dy);
-                        if(distanzaAttuale < distanza)
+                        
+                        double distanzaAttuale = i.Distanza(j);
+                        if (distanzaAttuale < distanza)
                         {
                             distanza = distanzaAttuale;
                             fine = j;
                         }
                     }
                 }
-                Strada s = new Strada(partenza, fine);
-                m.Strade.Add(s);
+                strade.Add(new Strada(partenza, fine));
             }
+            mappa = new Mappa(incroci, strade);
         }
+        
 
         //Disegno grafica
         protected override void OnPaint(PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            foreach(Incrocio i in m.Incroci){
-                g.FillEllipse(Brushes.Red, i.X, i.Y, 5, 5);
+            foreach(Incrocio i in mappa.Incroci){
+                g.FillEllipse(Brushes.Red, i.X-4, i.Y-4, 8, 8);
             }
-            foreach(Strada s in m.Strade)
+            foreach(Strada s in mappa.Strade)
             {
-                g.DrawLine(Brushes.Black, s.IncrocioPartenza, s.IncrocioFine);
+                g.DrawLine(Pens.Black, s.IncrocioPartenza.PuntoIncrocio, s.IncrocioFine.PuntoIncrocio);
             }
         }
     }

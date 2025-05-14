@@ -8,14 +8,15 @@ namespace ClassLibraryStrade
 {
     public class Mappa
     {
-        private List<Incrocio> incroci;
-        private List<Strada> strade;
+        private List<Incrocio> incroci = [];
+        private List<Strada> strade = [];
 
-        public Mappa()
+        public Mappa(List<Incrocio> incroci, List<Strada> strade)
         {
-            this.incroci = new List<Incrocio>();
-            this.strade = new List<Strada>();
+            this.incroci = incroci;
+            this.strade = strade;
         }
+
         public List<Incrocio> Incroci { get => incroci; set => incroci = value; }
         public List<Strada> Strade { get => strade; set => strade = value; }
     }
