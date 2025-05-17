@@ -5,7 +5,7 @@ namespace WinFormsAppStrade2
 {
     public partial class FormMappa : Form
     {
-        Mappa mappa;
+        private Mappa mappa;
         public FormMappa()
         {
             InitializeComponent();
@@ -45,7 +45,7 @@ namespace WinFormsAppStrade2
                 }
                 strade.Add(new Strada(partenza, fine));
             }
-            mappa = new Mappa(incroci, strade);
+            mappa = new Mappa(incroci, strade); //Creazione oggetto mappa
         }
         
 
