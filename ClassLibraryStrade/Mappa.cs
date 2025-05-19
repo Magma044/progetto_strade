@@ -27,6 +27,7 @@ namespace ClassLibraryStrade
 
 
             Incrocio finale = incroci[index + 1];   //Arrivo all'elemento index + 1
+
             if (trovatiFinora == null)
             {
                 trovatiFinora = [partenza];
@@ -34,7 +35,7 @@ namespace ClassLibraryStrade
             {
                 //Elemento già visitato
 
-                if (index + 1 <= incroci.Count)
+                if (index < incroci.Count)
                 {
                     CollegamentoIsole(index + 1, trovatiFinora);
                     return;
@@ -43,15 +44,6 @@ namespace ClassLibraryStrade
             }
 
 
-
-            
-            incroci.ForEach(incrocio =>
-            {
-                if (!incrociControllati.Contains(incrocio) && incrocio != partenza)
-                {
-                    daControllare.Add(incrocio);
-                }
-            });
 
             //Espansione a grafo
 
