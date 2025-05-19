@@ -23,7 +23,7 @@ namespace ClassLibraryStrade
 
         private void CollegamentoIsole(int index = 0, List<Incrocio>? trovatiFinora = null)
         {
-            Incrocio partenza = incroci[index];     //Parto dall'elemento in posizione index
+          /*  Incrocio partenza = incroci[index];     //Parto dall'elemento in posizione index
 
 
             Incrocio finale = incroci[index + 1];   //Arrivo all'elemento index + 1
@@ -41,8 +41,25 @@ namespace ClassLibraryStrade
                     return;
                 }
                 return;
+            }*/
+            foreach(var i in incroci)
+            {
+                if (i.Strade.Count == 1)
+                {
+                    Incrocio incrociomin=null;
+                    double distanzamin = double.MaxValue;
+                    foreach (var j in incroci)
+                    {
+                        if (i.Distanza(j) < distanzamin)
+                        {
+                            incrociomin = j;
+                            distanzamin = i.Distanza(j);
+                        }
+                    }
+                    strade.Add(new Strada(i, incrociomin));
+                }
+                
             }
-
 
 
             //Espansione a grafo
