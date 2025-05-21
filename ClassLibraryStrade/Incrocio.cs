@@ -44,5 +44,33 @@ namespace ClassLibraryStrade
                 strade.Add(strada);
             }
         }
+
+        /**
+         * <summary>Funzione ricorsiva che espande il grafo attuale a partire da un incrocio</summary>
+         */
+        public void EspandiGrafo(List<Incrocio> collegatiFinora)
+        {
+            //Espansione a grafo
+            foreach (Strada s in strade)
+            {
+                if (this == s.IncrocioPartenza)
+                {
+                    if (!collegatiFinora.Contains(s.IncrocioFine))
+                    {
+                        collegatiFinora.Add(s.IncrocioFine);
+                        s.IncrocioFine.EspandiGrafo(collegatiFinora);
+                    }
+                }
+                else if (this == s.IncrocioFine)
+                {
+                    if (!collegatiFinora.Contains(s.IncrocioPartenza))
+                    {
+                        collegatiFinora.Add(s.IncrocioPartenza);
+                        s.IncrocioPartenza.EspandiGrafo(collegatiFinora);
+                    }
+                }
+
+            }
+        }
     }
 }

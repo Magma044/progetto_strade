@@ -14,7 +14,7 @@ namespace WinFormsAppStrade2
 
             //Generazione punti incrocio
             List<Incrocio> incroci = [];
-            for (int i = 0; i < 35; i++)
+            for (int i = 0; i < 60; i++)
             {
                 Random r = new Random();
                 int x = r.Next(25, ClientSize.Width - 100);
