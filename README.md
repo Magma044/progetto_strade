@@ -1,6 +1,6 @@
 # 🛣️ Algoritmo di Generazione di Strade su Mappa
 
-un progetto open-source che implementa un algoritmo per la generazione procedurale di strade su una mappa. Pensato per giochi o simulazioni urbane, l'algoritmo consente di creare reti stradali coerenti e realistiche su mappe 2D.
+Un progetto open-source che implementa un algoritmo per la generazione procedurale di strade su una mappa. Pensato per giochi o simulazioni urbane, l'algoritmo consente di creare reti stradali coerenti e realistiche su mappe 2D.
 
 ## 🚀 Caratteristiche
 
