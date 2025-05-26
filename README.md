@@ -12,5 +12,5 @@ un progetto open-source che implementa un algoritmo per la generazione procedura
 
 L'algoritmo si basa su tecniche come:
 
-- **A* / Dijkstra** per ottimizzare connessioni tra nodi
+- Dijkstra per ottimizzare connessioni tra nodi
 
